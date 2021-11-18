@@ -14,17 +14,7 @@
  * limitations under the License.
  */
 
-package org.creek.example;
+package org.creek.api.platform.metadata;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-
-import org.junit.jupiter.api.Test;
-
-class ExampleTest {
-
-    @Test
-    void shouldReturnTrue() {
-        assertThat(Example.getTrue(), is(true));
-    }
-}
+/** Type defining metadata data about an aggregate. */
+public interface AggregateDescriptor extends ComponentDescriptor {}

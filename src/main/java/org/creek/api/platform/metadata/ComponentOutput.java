@@ -14,12 +14,7 @@
  * limitations under the License.
  */
 
-package org.creek.example;
+package org.creek.api.platform.metadata;
 
-public final class Example {
-    private Example() {}
-
-    public static boolean getTrue() {
-        return true;
-    }
-}
+/** Marker interface of component outputs. */
+public interface ComponentOutput {}
