@@ -131,14 +131,6 @@ tasks.jacocoTestReport {
     dependsOn(tasks.test)
 }
 
-configure<PublishingExtension> {
-    publications {
-        create<MavenPublication>("maven") {
-            from(components["java"])
-        }
-    }
-}
-
 tasks.register("format") {
     dependsOn("spotlessCheck", "spotlessApply")
 }
@@ -172,8 +164,12 @@ publishing {
         }
     }
     publications {
-        register<MavenPublication>("gpr") {
+        create<MavenPublication>("maven") {
             from(components["java"])
+
+            pom {
+                url.set("https://github.com/creek-service/${project.name}.git")
+            }
         }
     }
 }
