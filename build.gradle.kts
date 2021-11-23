@@ -174,4 +174,4 @@ publishing {
     }
 }
 
-defaultTasks("check")
+defaultTasks("format", "static", "check")
