@@ -16,11 +16,17 @@
 
 package org.creek.api.platform.metadata;
 
+import static org.creek.internal.platform.metadata.Components.defaultNaming;
 
 import java.util.Map;
 
 /** Type defining metadata data about a service. */
 public interface ServiceDescriptor extends ComponentDescriptor {
+
+    @Override
+    default String getName() {
+        return defaultNaming(this, "ServiceDescriptor", "Descriptor");
+    }
 
     /**
      * The simple name of the docker image that contains the service.

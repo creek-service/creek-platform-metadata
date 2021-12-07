@@ -17,26 +17,23 @@
 package org.creek.api.platform.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-class ServiceDescriptorTest {
-
-    private final ServiceDescriptor descriptor = new TestServiceDescriptor();
+class AggregateDescriptorTest {
 
     @Test
     void shouldReturnStandardAggregateName() {
-        assertThat(new TestServiceDescriptor().getName(), is("test"));
+        assertThat(new StandardAggregateDescriptor().getName(), is("standard"));
         assertThat(new SupportedDescriptor().getName(), is("supported"));
     }
 
     @Test
     void shouldThrowOnNonStandardAggregateClassName() {
         // Given:
-        final ServiceDescriptor descriptor = new NonStandard();
+        final AggregateDescriptor descriptor = new NonStandard();
 
         // When:
         final Exception e = assertThrows(UnsupportedOperationException.class, descriptor::getName);
@@ -47,19 +44,9 @@ class ServiceDescriptorTest {
                 is("Non-standard class name: either override getName or use standard naming"));
     }
 
-    @Test
-    void shouldDefaultImageNameToServiceName() {
-        assertThat(descriptor.getDockerImage(), is(descriptor.getName()));
-    }
-
-    @Test
-    void shouldDefaultToNoTestEnv() {
-        assertThat(descriptor.getTestEnvironment().entrySet(), is(empty()));
-    }
-
-    private static final class TestServiceDescriptor implements ServiceDescriptor {}
+    private static final class StandardAggregateDescriptor implements AggregateDescriptor {}
 
     private static final class SupportedDescriptor implements AggregateDescriptor {}
 
-    private static final class NonStandard implements ServiceDescriptor {}
+    private static final class NonStandard implements AggregateDescriptor {}
 }

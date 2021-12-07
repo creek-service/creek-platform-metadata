@@ -16,5 +16,13 @@
 
 package org.creek.api.platform.metadata;
 
+import static org.creek.internal.platform.metadata.Components.defaultNaming;
+
 /** Type defining metadata data about an aggregate. */
-public interface AggregateDescriptor extends ComponentDescriptor {}
+public interface AggregateDescriptor extends ComponentDescriptor {
+
+    @Override
+    default String getName() {
+        return defaultNaming(this, "AggregateDescriptor", "Descriptor");
+    }
+}
