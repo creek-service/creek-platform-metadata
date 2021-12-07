@@ -28,11 +28,11 @@ class ServiceDescriptorTest {
 
     @Test
     void shouldDefaultImageNameToServiceName() {
-        assertThat(descriptor.dockerImage(), is(descriptor.name()));
+        assertThat(descriptor.getDockerImage(), is(descriptor.getName()));
     }
 
     @Test
     void shouldDefaultToNoTestEnv() {
-        assertThat(descriptor.testEnvironment().entrySet(), is(empty()));
+        assertThat(descriptor.getTestEnvironment().entrySet(), is(empty()));
     }
 }

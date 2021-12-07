@@ -24,20 +24,20 @@ import java.util.List;
 public interface ComponentDescriptor {
 
     /** @return the unique name of the component within the platform */
-    String name();
+    String getName();
 
     /** @return the inputs to the component, e.g. Kafka topics it consumes. */
-    default Collection<ComponentInput> inputs() {
+    default Collection<ComponentInput> getInputs() {
         return List.of();
     }
 
     /** @return the internals to the component, e.g. changelog or repartition Kafka topics. */
-    default Collection<ComponentInternal> internals() {
+    default Collection<ComponentInternal> getInternals() {
         return List.of();
     }
 
     /** @return the outputs from the component, e.g. the Kafka topics it outputs too */
-    default Collection<ComponentOutput> outputs() {
+    default Collection<ComponentOutput> getOutputs() {
         return List.of();
     }
 }

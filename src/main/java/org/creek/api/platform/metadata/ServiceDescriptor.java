@@ -30,15 +30,15 @@ public interface ServiceDescriptor extends ComponentDescriptor {
      *
      * @return the service's docker image name.
      */
-    default String dockerImage() {
-        return name();
+    default String getDockerImage() {
+        return getName();
     }
 
     /**
      * Allows customisation of the environment variables available to the service during system
      * testing.
      */
-    default Map<String, String> testEnvironment() {
+    default Map<String, String> getTestEnvironment() {
         return Map.of();
     }
 }

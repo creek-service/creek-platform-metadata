@@ -28,8 +28,8 @@ class ComponentDescriptorTest {
 
     @Test
     void shouldDefaultToEmptyResources() {
-        assertThat(descriptor.inputs(), is(empty()));
-        assertThat(descriptor.internals(), is(empty()));
-        assertThat(descriptor.outputs(), is(empty()));
+        assertThat(descriptor.getInputs(), is(empty()));
+        assertThat(descriptor.getInternals(), is(empty()));
+        assertThat(descriptor.getOutputs(), is(empty()));
     }
 }
