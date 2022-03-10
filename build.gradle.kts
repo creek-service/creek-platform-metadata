@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Creek Contributors (https://github.com/creek-service)
+ * Copyright 2021-2022 Creek Contributors (https://github.com/creek-service)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ plugins {
     id("com.diffplug.spotless") version "6.0.0"                 // https://mvnrepository.com/artifact/com.diffplug.spotless/spotless-plugin-gradle
     id("pl.allegro.tech.build.axion-release") version "1.13.5"  // https://mvnrepository.com/artifact/pl.allegro.tech.build.axion-release/pl.allegro.tech.build.axion-release.gradle.plugin?repo=gradle-plugins
     id("com.github.kt3k.coveralls") version "2.12.0"            // https://plugins.gradle.org/plugin/com.github.kt3k.coveralls
+    id("org.javamodularity.moduleplugin") version "1.8.10"      // https://plugins.gradle.org/plugin/org.javamodularity.moduleplugin
 }
 
 project.version = scmVersion.version
@@ -39,6 +40,7 @@ group = "org.creek"
 java {
     withSourcesJar()
 
+    modularity.inferModulePath.set(false)
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
 }
@@ -88,7 +90,7 @@ dependencies {
 }
 
 tasks.compileJava {
-    options.compilerArgs.add("-Xlint:all,-serial")
+    options.compilerArgs.add("-Xlint:all,-serial,-requires-automatic,-requires-transitive-automatic")
     options.compilerArgs.add("-Werror")
 }
 
