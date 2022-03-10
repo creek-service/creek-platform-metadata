@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Creek Contributors (https://github.com/creek-service)
+ * Copyright 2021-2022 Creek Contributors (https://github.com/creek-service)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import java.util.Map;
 public interface ServiceDescriptor extends ComponentDescriptor {
 
     @Override
-    default String getName() {
+    default String name() {
         return defaultNaming(this, "ServiceDescriptor", "Descriptor");
     }
 
@@ -36,15 +36,15 @@ public interface ServiceDescriptor extends ComponentDescriptor {
      *
      * @return the service's docker image name.
      */
-    default String getDockerImage() {
-        return getName();
+    default String dockerImage() {
+        return name();
     }
 
     /**
      * Allows customisation of the environment variables available to the service during system
      * testing.
      */
-    default Map<String, String> getTestEnvironment() {
+    default Map<String, String> testEnvironment() {
         return Map.of();
     }
 }
