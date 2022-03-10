@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Creek Contributors (https://github.com/creek-service)
+ * Copyright 2021-2022 Creek Contributors (https://github.com/creek-service)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,8 +26,8 @@ class AggregateDescriptorTest {
 
     @Test
     void shouldReturnStandardAggregateName() {
-        assertThat(new StandardAggregateDescriptor().getName(), is("standard"));
-        assertThat(new SupportedDescriptor().getName(), is("supported"));
+        assertThat(new StandardAggregateDescriptor().name(), is("standard"));
+        assertThat(new SupportedDescriptor().name(), is("supported"));
     }
 
     @Test
@@ -36,7 +36,7 @@ class AggregateDescriptorTest {
         final AggregateDescriptor descriptor = new NonStandard();
 
         // When:
-        final Exception e = assertThrows(UnsupportedOperationException.class, descriptor::getName);
+        final Exception e = assertThrows(UnsupportedOperationException.class, descriptor::name);
 
         // Then:
         assertThat(

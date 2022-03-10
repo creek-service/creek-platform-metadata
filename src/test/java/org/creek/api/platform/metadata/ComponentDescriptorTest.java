@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Creek Contributors (https://github.com/creek-service)
+ * Copyright 2021-2022 Creek Contributors (https://github.com/creek-service)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,8 @@ class ComponentDescriptorTest {
 
     @Test
     void shouldDefaultToEmptyResources() {
-        assertThat(descriptor.getInputs(), is(empty()));
-        assertThat(descriptor.getInternals(), is(empty()));
-        assertThat(descriptor.getOutputs(), is(empty()));
+        assertThat(descriptor.inputs(), is(empty()));
+        assertThat(descriptor.internals(), is(empty()));
+        assertThat(descriptor.outputs(), is(empty()));
     }
 }

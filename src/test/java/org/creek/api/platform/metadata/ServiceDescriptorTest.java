@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Creek Contributors (https://github.com/creek-service)
+ * Copyright 2021-2022 Creek Contributors (https://github.com/creek-service)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,8 +29,8 @@ class ServiceDescriptorTest {
 
     @Test
     void shouldReturnStandardAggregateName() {
-        assertThat(new TestServiceDescriptor().getName(), is("test"));
-        assertThat(new SupportedDescriptor().getName(), is("supported"));
+        assertThat(new TestServiceDescriptor().name(), is("test"));
+        assertThat(new SupportedDescriptor().name(), is("supported"));
     }
 
     @Test
@@ -39,7 +39,7 @@ class ServiceDescriptorTest {
         final ServiceDescriptor descriptor = new NonStandard();
 
         // When:
-        final Exception e = assertThrows(UnsupportedOperationException.class, descriptor::getName);
+        final Exception e = assertThrows(UnsupportedOperationException.class, descriptor::name);
 
         // Then:
         assertThat(
@@ -49,12 +49,12 @@ class ServiceDescriptorTest {
 
     @Test
     void shouldDefaultImageNameToServiceName() {
-        assertThat(descriptor.getDockerImage(), is(descriptor.getName()));
+        assertThat(descriptor.dockerImage(), is(descriptor.name()));
     }
 
     @Test
     void shouldDefaultToNoTestEnv() {
-        assertThat(descriptor.getTestEnvironment().entrySet(), is(empty()));
+        assertThat(descriptor.testEnvironment().entrySet(), is(empty()));
     }
 
     private static final class TestServiceDescriptor implements ServiceDescriptor {}

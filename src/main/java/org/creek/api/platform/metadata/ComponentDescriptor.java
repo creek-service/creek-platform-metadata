@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Creek Contributors (https://github.com/creek-service)
+ * Copyright 2021-2022 Creek Contributors (https://github.com/creek-service)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,25 +19,35 @@ package org.creek.api.platform.metadata;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Stream;
 
 /** Defines metadata about a platform component */
 public interface ComponentDescriptor {
 
     /** @return the unique name of the component within the platform */
-    String getName();
+    String name();
 
     /** @return the inputs to the component, e.g. Kafka topics it consumes. */
-    default Collection<ComponentInput> getInputs() {
+    default Collection<ComponentInput> inputs() {
         return List.of();
     }
 
     /** @return the internals to the component, e.g. changelog or repartition Kafka topics. */
-    default Collection<ComponentInternal> getInternals() {
+    default Collection<ComponentInternal> internals() {
         return List.of();
     }
 
     /** @return the outputs from the component, e.g. the Kafka topics it outputs too */
-    default Collection<ComponentOutput> getOutputs() {
+    default Collection<ComponentOutput> outputs() {
         return List.of();
+    }
+
+    /**
+     * @return {@link Stream} of component {@link #inputs}, {@link #internals} and {@link #outputs}
+     *     resources.
+     */
+    default Stream<ResourceDescriptor> resources() {
+        return Stream.concat(
+                inputs().stream(), Stream.concat(internals().stream(), outputs().stream()));
     }
 }
