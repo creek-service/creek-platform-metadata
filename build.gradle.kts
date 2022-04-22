@@ -58,6 +58,7 @@ repositories {
 }
 
 extra.apply {
+    set("creekVersion", "0.+")
     set("spotBugsVersion", "4.4.2")         // https://mvnrepository.com/artifact/com.github.spotbugs/spotbugs-annotations
 
     set("guavaVersion", "31.1-jre")       // https://mvnrepository.com/artifact/com.google.guava/guava
@@ -69,6 +70,7 @@ extra.apply {
     set("hamcrestVersion", "2.2")           // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-core
 }
 
+val creekVersion : String by extra
 val guavaVersion : String by extra
 val log4jVersion : String by extra
 val junitVersion: String by extra
@@ -77,6 +79,9 @@ val mockitoVersion: String by extra
 val hamcrestVersion : String by extra
 
 dependencies {
+    testImplementation("org.creek:creek-test-util:$creekVersion")
+    testImplementation("org.creek:creek-test-hamcrest:$creekVersion")
+    testImplementation("org.creek:creek-test-conformity:$creekVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-params:$junitVersion")
     testImplementation("org.junit-pioneer:junit-pioneer:$junitPioneerVersion")
