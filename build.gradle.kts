@@ -64,7 +64,7 @@ extra.apply {
     set("log4jVersion", "2.14.1")           // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
 
     set("junitVersion", "5.8.2")            // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-    set("junitPioneerVersion", "1.5.0")     // https://mvnrepository.com/artifact/org.junit-pioneer/junit-pioneer
+    set("junitPioneerVersion", "1.7.0")     // https://mvnrepository.com/artifact/org.junit-pioneer/junit-pioneer
     set("mockitoVersion", "4.1.0")          // https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter
     set("hamcrestVersion", "2.2")           // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-core
 }
