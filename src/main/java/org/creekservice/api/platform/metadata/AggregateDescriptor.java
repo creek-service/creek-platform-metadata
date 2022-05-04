@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Creek Contributors (https://github.com/creek-service)
+ * Copyright 2021-2022 Creek Contributors (https://github.com/creek-service)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,15 @@
  * limitations under the License.
  */
 
-package org.creek;
+package org.creekservice.api.platform.metadata;
 
+import static org.creekservice.internal.platform.metadata.Components.defaultNaming;
 
-import org.creek.api.test.conformity.ConformityTester;
-import org.junit.jupiter.api.Test;
+/** Type defining metadata data about an aggregate. */
+public interface AggregateDescriptor extends ComponentDescriptor {
 
-class ModuleTest {
-
-    @Test
-    void shouldConform() {
-        ConformityTester.test(ModuleTest.class);
+    @Override
+    default String name() {
+        return defaultNaming(this, "AggregateDescriptor", "Descriptor");
     }
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.creek.api.platform.metadata;
+package org.creekservice.api.platform.metadata;
 
 
 import java.util.Collection;
