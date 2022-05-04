@@ -14,15 +14,7 @@
  * limitations under the License.
  */
 
-package org.creek.api.platform.metadata;
+package org.creekservice.api.platform.metadata;
 
-import static org.creek.internal.platform.metadata.Components.defaultNaming;
-
-/** Type defining metadata data about an aggregate. */
-public interface AggregateDescriptor extends ComponentDescriptor {
-
-    @Override
-    default String name() {
-        return defaultNaming(this, "AggregateDescriptor", "Descriptor");
-    }
-}
+/** Marker interface of component outputs. */
+public interface ComponentOutput extends ResourceDescriptor {}

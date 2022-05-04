@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.creek.api.platform.metadata;
+package org.creekservice.api.platform.metadata;
 
-/** Marker interface of resource descriptors. */
-public interface ResourceDescriptor {}
+/** Marker interface of component inputs. */
+public interface ComponentInput extends ResourceDescriptor {}

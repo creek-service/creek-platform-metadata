@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.creek.internal.platform.metadata;
+package org.creekservice.internal.platform.metadata;
 
 
 import java.util.Arrays;
 import java.util.Locale;
-import org.creek.api.platform.metadata.ComponentDescriptor;
+import org.creekservice.api.platform.metadata.ComponentDescriptor;
 
 public final class Components {
 

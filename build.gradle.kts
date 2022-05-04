@@ -35,7 +35,7 @@ apply(plugin = "com.diffplug.spotless")
 apply(plugin = "com.github.spotbugs")
 apply(plugin = "maven-publish")
 
-group = "org.creek"
+group = "org.creekservice"
 
 java {
     withSourcesJar()

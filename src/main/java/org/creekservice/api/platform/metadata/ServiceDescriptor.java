@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.creek.api.platform.metadata;
+package org.creekservice.api.platform.metadata;
 
-import static org.creek.internal.platform.metadata.Components.defaultNaming;
+import static org.creekservice.internal.platform.metadata.Components.defaultNaming;
 
 import java.util.Map;
 

@@ -1,3 +1,3 @@
 module creek.platform.metadata {
-    exports org.creek.api.platform.metadata;
+    exports org.creekservice.api.platform.metadata;
 }
