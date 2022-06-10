@@ -47,6 +47,7 @@ class ServiceDescriptorTest {
                 is("Non-standard class name: either override getName or use standard naming"));
     }
 
+    @Test
     void shouldDefaultToNoTestEnv() {
         assertThat(descriptor.testEnvironment().entrySet(), is(empty()));
     }
