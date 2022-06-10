@@ -29,16 +29,14 @@ public interface ServiceDescriptor extends ComponentDescriptor {
     }
 
     /**
-     * The simple name of the docker image that contains the service.
+     * The name of the docker image that contains the service, without version info.
      *
-     * <p>Given a full image name of {@code confluentinc/cp-kafka:6.1.2}, this method should return
-     * {@code cp-kafka}.
+     * <p>For example, given a full image name of {@code confluentinc/cp-kafka:6.1.2}, this method
+     * should return {@code confluentinc/cp-kafka}.
      *
      * @return the service's docker image name.
      */
-    default String dockerImage() {
-        return name();
-    }
+    String dockerImage();
 
     /**
      * Allows customisation of the environment variables available to the service during system
