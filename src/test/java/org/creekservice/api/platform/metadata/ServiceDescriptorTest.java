@@ -48,18 +48,23 @@ class ServiceDescriptorTest {
     }
 
     @Test
-    void shouldDefaultImageNameToServiceName() {
-        assertThat(descriptor.dockerImage(), is(descriptor.name()));
-    }
-
-    @Test
     void shouldDefaultToNoTestEnv() {
         assertThat(descriptor.testEnvironment().entrySet(), is(empty()));
     }
 
-    private static final class TestServiceDescriptor implements ServiceDescriptor {}
+    private static final class TestServiceDescriptor implements ServiceDescriptor {
+        @Override
+        public String dockerImage() {
+            return null;
+        }
+    }
 
     private static final class SupportedDescriptor implements AggregateDescriptor {}
 
-    private static final class NonStandard implements ServiceDescriptor {}
+    private static final class NonStandard implements ServiceDescriptor {
+        @Override
+        public String dockerImage() {
+            return null;
+        }
+    }
 }
