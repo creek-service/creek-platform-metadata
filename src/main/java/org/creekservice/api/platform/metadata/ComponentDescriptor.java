@@ -21,7 +21,20 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
 
-/** Defines metadata about a platform component */
+/**
+ * Defines metadata about a platform component
+ *
+ * <p>Creek system tests will look for components using {@link java.util.ServiceLoader} to load
+ * instances of this type from the class & module paths. Therefore, to be loaded by Creek system
+ * test the component must:
+ *
+ * <ul>
+ *   <li>be listed in the {@code module-info.java} file as a {@code provider} of {@link
+ *       ComponentDescriptor}, if using JPMS, or
+ *   <li>have a suitable entry in the {@code META-INFO.services} directory, or
+ *   <li>both of the above
+ * </ul>
+ */
 public interface ComponentDescriptor {
 
     /** @return the unique name of the component within the platform */
