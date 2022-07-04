@@ -25,7 +25,7 @@ public interface ServiceDescriptor extends ComponentDescriptor {
 
     @Override
     default String name() {
-        return defaultNaming(this, "ServiceDescriptor", "Descriptor");
+        return defaultNaming(this, "Descriptor");
     }
 
     /**
