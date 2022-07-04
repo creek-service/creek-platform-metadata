@@ -18,7 +18,6 @@ package org.creekservice.internal.platform.metadata;
 
 
 import java.util.Arrays;
-import java.util.Locale;
 import org.creekservice.api.platform.metadata.ComponentDescriptor;
 
 public final class Components {
@@ -31,12 +30,18 @@ public final class Components {
         final String found =
                 Arrays.stream(supportedPostFixes)
                         .filter(className::endsWith)
-                        .findAny()
+                        .findFirst()
                         .orElseThrow(
                                 () ->
                                         new UnsupportedOperationException(
-                                                "Non-standard class name: either override getName or use standard naming"));
+                                                "Non-standard class name: either override name() or use standard naming"));
 
-        return className.substring(0, className.length() - found.length()).toLowerCase(Locale.ROOT);
+        final String name =
+                className
+                        .substring(0, className.length() - found.length())
+                        .replaceAll("([A-Z])", "-$1")
+                        .toLowerCase();
+
+        return name.indexOf("-") == 0 ? name.substring(1) : name;
     }
 }

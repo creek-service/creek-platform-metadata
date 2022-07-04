@@ -29,8 +29,7 @@ class ServiceDescriptorTest {
 
     @Test
     void shouldReturnStandardAggregateName() {
-        assertThat(new TestServiceDescriptor().name(), is("test"));
-        assertThat(new SupportedDescriptor().name(), is("supported"));
+        assertThat(new TestServiceDescriptor().name(), is("test-service"));
     }
 
     @Test
@@ -44,7 +43,7 @@ class ServiceDescriptorTest {
         // Then:
         assertThat(
                 e.getMessage(),
-                is("Non-standard class name: either override getName or use standard naming"));
+                is("Non-standard class name: either override name() or use standard naming"));
     }
 
     @Test
@@ -58,8 +57,6 @@ class ServiceDescriptorTest {
             return null;
         }
     }
-
-    private static final class SupportedDescriptor implements AggregateDescriptor {}
 
     private static final class NonStandard implements ServiceDescriptor {
         @Override
