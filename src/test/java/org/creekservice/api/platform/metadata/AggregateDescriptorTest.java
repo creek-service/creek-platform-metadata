@@ -41,7 +41,7 @@ class AggregateDescriptorTest {
         // Then:
         assertThat(
                 e.getMessage(),
-                is("Non-standard class name: either override getName or use standard naming"));
+                is("Non-standard class name: either override name() or use standard naming"));
     }
 
     private static final class StandardAggregateDescriptor implements AggregateDescriptor {}
